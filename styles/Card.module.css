@@ -1,5 +1,10 @@
 .card {
   background-color: #fff;
+  border: 1px solid #eee;
+  box-shadow: 2px 4px 6px 0 rgb(0 0 0 / 0.05);
+  border-radius: 4px;
+  isolation: isolate;
+  overflow: hidden;
 }
 
 .header {
@@ -19,4 +24,14 @@
 
 .body {
   padding: 0.5rem;
+}
+
+.footer {
+  background-color: #fff;
+  box-shadow: 0 -1px 2px 0 rgb(0 0 0 / 0.05);
+  padding: 0.5rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
