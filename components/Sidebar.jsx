@@ -19,7 +19,7 @@ const initialValues = {
 export const Sidebar = () => {
   const [open, setOpen] = useState(false);
   const [modalOpt, setModalOpt] = useState("lane");
-  const { actionType, setData } = useContext(Context);
+  const { actionType, fetchData } = useContext(Context);
 
   const [values, setValues] = useState(initialValues);
 
@@ -176,7 +176,7 @@ export const Sidebar = () => {
     });
 
     const res = await response.json();
-    setData((prev) => ({ result: [...prev.result, res] }));
+    fetchData({ actionType });
     setValues(initialValues);
   }
 

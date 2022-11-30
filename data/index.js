@@ -1,6 +1,6 @@
 export const data = [
   {
-    key: "Road",
+    key: "road",
     type: "Action",
     values: [
       {
@@ -37,7 +37,7 @@ export const data = [
       {
         key: "state",
         type: "enum",
-        value: ["on", "off"],
+        value: "on",
       },
     ],
   },

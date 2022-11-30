@@ -1,16 +1,10 @@
 import { useContext, useEffect } from "react";
 import { Context } from "../lib/Context";
+import { arrangeData } from "../utils";
 import { Card } from "./Card";
 
 export const ContentArea = () => {
-  const { actionType, data, setData } = useContext(Context);
-
-  const fetchData = async ({ actionType }) => {
-    const response = await fetch(`/api?key=${actionType}`);
-    const result = await response.json();
-
-    setData(result);
-  };
+  const { actionType, data, fetchData } = useContext(Context);
 
   useEffect(() => {
     fetchData({ actionType });
