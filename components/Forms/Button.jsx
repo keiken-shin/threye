@@ -1,4 +1,4 @@
-import styles from "../../styles/Button.module.css";
+import styles from "../../styles/Form.module.css";
 
 export const Button = ({
   name,

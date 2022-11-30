@@ -2,16 +2,17 @@ import { Card } from "./Card";
 import { Button, Input, Select, Switch } from "./Forms";
 import styles from "../styles/Sidebar.module.css";
 import { Modal } from "./Modal";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { Context } from "../lib/Context";
 
-const roadList = ["lane", "markings"];
+const roadList = ["markings"];
 const lightList = ["color", "height", "state"];
 
 export const Sidebar = () => {
   const [open, setOpen] = useState(false);
   const [modalOpt, setModalOpt] = useState("lane");
+  const { actionType } = useContext(Context);
 
-  const [action, setAction] = useState("light");
   const [values, setValues] = useState({
     lane: 4,
     markings: "white",
@@ -36,6 +37,8 @@ export const Sidebar = () => {
 
   const RoadForm = () => (
     <>
+      <Input label="lane" type="number" value={4} name="lane" />
+
       {roadList.map((item, idx) => (
         <PlaceholderBlock
           key={idx}
@@ -76,22 +79,18 @@ export const Sidebar = () => {
       );
     }
 
-    return (
-      <Input
-        label={label}
-        type={label === "lane" ? "number" : "text"}
-        value={values[label]}
-        name={label}
-      />
-    );
+    return <Input label={label} value={values[label]} name={label} />;
   };
 
   return (
     <>
       <Card title="Right Hand Panel">
-        <Card title="Road Form" footer={<Button>Apply</Button>}>
+        <Card
+          title={actionType === "roads" ? "Road Form" : "Light Form"}
+          footer={<Button>Apply</Button>}
+        >
           <section className={styles["form-container"]}>
-            {action === "road" ? <RoadForm /> : <LightForm />}
+            {actionType === "roads" ? <RoadForm /> : <LightForm />}
           </section>
         </Card>
       </Card>

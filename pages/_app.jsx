@@ -1,8 +1,12 @@
-import Head from "next/head";
+import { ContextProvider } from "../lib/Context";
 import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />;
+  return (
+    <ContextProvider>
+      <Component {...pageProps} />
+    </ContextProvider>
+  );
 }
 
 export default MyApp;

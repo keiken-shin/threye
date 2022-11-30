@@ -1,13 +1,13 @@
-import styles from "../../styles/Switch.module.css";
+import styles from "../../styles/Form.module.css";
 
 export const Switch = ({ label, name, onSwitch, ...props }) => {
   return (
-    <label className={styles.label}>
+    <label className={`${styles.label} ${styles["switch-wrapper"]}`}>
       <span>{label}</span>
 
-      <div class={styles.switch}>
+      <div className={styles.switch}>
         <input type="checkbox" name={name} onClick={onSwitch} {...props} />
-        <span class={`${styles.slider} ${styles.round}`}></span>
+        <span className={`${styles.slider} ${styles.round}`}></span>
       </div>
     </label>
   );

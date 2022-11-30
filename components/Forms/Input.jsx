@@ -1,6 +1,12 @@
-import styles from "../../styles/Input.module.css";
+import styles from "../../styles/Form.module.css";
 
-export const Input = ({ label, type = "text", placeholder = "", ...props }) => {
+export const Input = ({
+  label,
+  type = "text",
+  placeholder = "",
+  onChange,
+  ...props
+}) => {
   return (
     <label className={styles.label}>
       <span>{label}</span>
@@ -8,6 +14,7 @@ export const Input = ({ label, type = "text", placeholder = "", ...props }) => {
         className={styles.input}
         type={type}
         placeholder={placeholder}
+        onChange={onChange}
         {...props}
       />
     </label>
